@@ -373,14 +373,17 @@ export class CronEditorComponent implements OnInit, OnChanges {
   }
 
   private getDefaultAdvancedCronExpression(): string {
-    if (this.options.removeSeconds && !this.options.removeYears)
+    if (this.options.removeSeconds && !this.options.removeYears) {
       return '15 10 L-2 * ? 2019';
+    }
 
-    if (!this.options.removeSeconds && this.options.removeYears)
+    if (!this.options.removeSeconds && this.options.removeYears) {
       return '0 15 10 L-2 * ?';
+    }
 
-    if (this.options.removeSeconds && this.options.removeYears)
-      return '15 10 L-2 * ?';      
+    if (this.options.removeSeconds && this.options.removeYears) {
+      return '15 10 L-2 * ?';
+    }
 
     return '0 15 10 L-2 * ? 2019';
   }
