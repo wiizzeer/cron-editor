@@ -29,9 +29,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build_lib": "ng build cron-editor",
-    "build": "ng build cron-editor && ng build --prod",    
+    "build": "ng build cron-editor && ng build --prod",
     "start": "yarn run build_lib && ng serve",
-
     "copy-license": "copy .\\LICENSE.md .\\dist\\cron-editor",
     "copy-readme": "copy .\\README.md .\\dist\\cron-editor",
     "copy-files": "npm run copy-license && npm run copy-readme",
