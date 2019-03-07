@@ -150,8 +150,8 @@ export class CronEditorComponent implements OnInit, OnChanges {
       case 'monthly':
         switch (this.state.monthly.subTab) {
           case 'specificDay':
+            const day = this.state.monthly.runOnWeekday ? `${this.state.monthly.specificDay.day}W` : this.state.monthly.specificDay.day;
             // tslint:disable-next-line:max-line-length
-            let day = this.state.monthly.runOnWeekday ? `${this.state.monthly.specificDay.day}W`: this.state.monthly.specificDay.day;
             this.cron = `${this.state.monthly.specificDay.minutes} ${this.hourToCron(this.state.monthly.specificDay.hours, this.state.monthly.specificDay.hourType)} ${day} 1/${this.state.monthly.specificDay.months} ?`;
 
             if (!this.options.removeSeconds) {
@@ -181,8 +181,8 @@ export class CronEditorComponent implements OnInit, OnChanges {
       case 'yearly':
         switch (this.state.yearly.subTab) {
           case 'specificMonthDay':
+            const day = this.state.yearly.runOnWeekday ? `${this.state.yearly.specificMonthDay.day}W` : this.state.yearly.specificMonthDay.day;
             // tslint:disable-next-line:max-line-length
-            let day = this.state.yearly.runOnWeekday ? `${this.state.yearly.specificMonthDay.day}W`: this.state.yearly.specificMonthDay.day;
             this.cron = `${this.state.yearly.specificMonthDay.minutes} ${this.hourToCron(this.state.yearly.specificMonthDay.hours, this.state.yearly.specificMonthDay.hourType)} ${day} ${this.state.yearly.specificMonthDay.month} ?`;
 
             if (!this.options.removeSeconds) {
