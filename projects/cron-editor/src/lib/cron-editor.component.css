@@ -56,6 +56,10 @@
     width: 70px;
 }
 
+.cron-editor-container .advanced-cron-editor-label {
+    font-weight: 200;
+}
+
 .nav-tabs li a {
     cursor: pointer;
 }

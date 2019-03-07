@@ -151,7 +151,8 @@ export class CronEditorComponent implements OnInit, OnChanges {
         switch (this.state.monthly.subTab) {
           case 'specificDay':
             // tslint:disable-next-line:max-line-length
-            this.cron = `${this.state.monthly.specificDay.minutes} ${this.hourToCron(this.state.monthly.specificDay.hours, this.state.monthly.specificDay.hourType)} ${this.state.monthly.specificDay.day} 1/${this.state.monthly.specificDay.months} ?`;
+            let day = this.state.monthly.runOnWeekday ? `${this.state.monthly.specificDay.day}W`: this.state.monthly.specificDay.day;
+            this.cron = `${this.state.monthly.specificDay.minutes} ${this.hourToCron(this.state.monthly.specificDay.hours, this.state.monthly.specificDay.hourType)} ${day} 1/${this.state.monthly.specificDay.months} ?`;
 
             if (!this.options.removeSeconds) {
               this.cron = `${this.state.monthly.specificDay.seconds} ${this.cron}`;
@@ -181,7 +182,8 @@ export class CronEditorComponent implements OnInit, OnChanges {
         switch (this.state.yearly.subTab) {
           case 'specificMonthDay':
             // tslint:disable-next-line:max-line-length
-            this.cron = `${this.state.yearly.specificMonthDay.minutes} ${this.hourToCron(this.state.yearly.specificMonthDay.hours, this.state.yearly.specificMonthDay.hourType)} ${this.state.yearly.specificMonthDay.day} ${this.state.yearly.specificMonthDay.month} ?`;
+            let day = this.state.yearly.runOnWeekday ? `${this.state.yearly.specificMonthDay.day}W`: this.state.yearly.specificMonthDay.day;
+            this.cron = `${this.state.yearly.specificMonthDay.minutes} ${this.hourToCron(this.state.yearly.specificMonthDay.hours, this.state.yearly.specificMonthDay.hourType)} ${day} ${this.state.yearly.specificMonthDay.month} ?`;
 
             if (!this.options.removeSeconds) {
               this.cron = `${this.state.yearly.specificMonthDay.seconds} ${this.cron}`;
@@ -511,7 +513,7 @@ export class CronEditorComponent implements OnInit, OnChanges {
       seconds: Utils.getRange(0, 59),
       hours: Utils.getRange(1, 23),
       monthDays: Utils.getRange(1, 31),
-      monthDaysWithLasts: ['1W', ...[...Utils.getRange(1, 31).map(String)], 'LW', 'L'],
+      monthDaysWithLasts: [...[...Utils.getRange(1, 31).map(String)]],
       hourTypes: ['AM', 'PM']
     };
   }

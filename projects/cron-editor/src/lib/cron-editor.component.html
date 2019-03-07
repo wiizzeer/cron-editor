@@ -129,32 +129,32 @@
                     <div class="well well-small">
                         <div class="row">
                             <div class="col-sm-6">
-                                <input type="checkbox" [disabled]="disabled || activeTab !== 'weekly'" (change)="regenerateCron()"
-                                    [(ngModel)]="state.weekly.MON" [ngClass]="options.formCheckboxClass"> Monday
+                                <label class="advanced-cron-editor-label"><input type="checkbox" [disabled]="disabled || activeTab !== 'weekly'" (change)="regenerateCron()"
+                                    [(ngModel)]="state.weekly.MON" [ngClass]="options.formCheckboxClass"> Monday</label>
                             </div>
                             <div class="col-sm-6">
-                                <input type="checkbox" [disabled]="disabled || activeTab !== 'weekly'" (change)="regenerateCron()"
-                                    [(ngModel)]="state.weekly.TUE" [ngClass]="options.formCheckboxClass"> Tuesday
+                                <label class="advanced-cron-editor-label"><input type="checkbox" [disabled]="disabled || activeTab !== 'weekly'" (change)="regenerateCron()"
+                                    [(ngModel)]="state.weekly.TUE" [ngClass]="options.formCheckboxClass"> Tuesday</label>
                             </div>
                             <div class="col-sm-6">
-                                <input type="checkbox" [disabled]="disabled || activeTab !== 'weekly'" (change)="regenerateCron()"
-                                    [(ngModel)]="state.weekly.WED" [ngClass]="options.formCheckboxClass"> Wednesday
+                                <label class="advanced-cron-editor-label"><input type="checkbox" [disabled]="disabled || activeTab !== 'weekly'" (change)="regenerateCron()"
+                                    [(ngModel)]="state.weekly.WED" [ngClass]="options.formCheckboxClass"> Wednesday</label>
                             </div>
                             <div class="col-sm-6">
-                                <input type="checkbox" [disabled]="disabled || activeTab !== 'weekly'" (change)="regenerateCron()"
-                                    [(ngModel)]="state.weekly.THU" [ngClass]="options.formCheckboxClass"> Thursday
+                                <label class="advanced-cron-editor-label"><input type="checkbox" [disabled]="disabled || activeTab !== 'weekly'" (change)="regenerateCron()"
+                                    [(ngModel)]="state.weekly.THU" [ngClass]="options.formCheckboxClass"> Thursday</label>
                             </div>
                             <div class="col-sm-6">
-                                <input type="checkbox" [disabled]="disabled || activeTab !== 'weekly'" (change)="regenerateCron()"
-                                    [(ngModel)]="state.weekly.FRI" [ngClass]="options.formCheckboxClass"> Friday
+                                <label class="advanced-cron-editor-label"><input type="checkbox" [disabled]="disabled || activeTab !== 'weekly'" (change)="regenerateCron()"
+                                    [(ngModel)]="state.weekly.FRI" [ngClass]="options.formCheckboxClass"> Friday</label>
                             </div>
                             <div class="col-sm-6">
-                                <input type="checkbox" [disabled]="disabled || activeTab !== 'weekly'" (change)="regenerateCron()"
-                                    [(ngModel)]="state.weekly.SAT" [ngClass]="options.formCheckboxClass"> Saturday
+                                <label class="advanced-cron-editor-label"><input type="checkbox" [disabled]="disabled || activeTab !== 'weekly'" (change)="regenerateCron()"
+                                    [(ngModel)]="state.weekly.SAT" [ngClass]="options.formCheckboxClass"> Saturday</label>
                             </div>
                             <div class="col-sm-6">
-                                <input type="checkbox" [disabled]="disabled || activeTab !== 'weekly'" (change)="regenerateCron()"
-                                    [(ngModel)]="state.weekly.SUN" [ngClass]="options.formCheckboxClass"> Sunday
+                                <label class="advanced-cron-editor-label"><input type="checkbox" [disabled]="disabled || activeTab !== 'weekly'" (change)="regenerateCron()"
+                                    [(ngModel)]="state.weekly.SUN" [ngClass]="options.formCheckboxClass"> Sunday</label>
                             </div>
                         </div>
                         <div class="row">
@@ -190,7 +190,9 @@
                         <cron-time-picker [disabled]="disabled || activeTab !== 'monthly' || state.monthly.subTab !== 'specificDay'"
                             (change)="regenerateCron()" [(time)]="state.monthly.specificDay" [selectClass]="options.formSelectClass"
                             [use24HourTime]="options.use24HourTime" [hideSeconds]="options.hideSeconds">
-                        </cron-time-picker>
+                        </cron-time-picker>&nbsp;
+                        <label class="advanced-cron-editor-label"><input type="checkbox" (change)="regenerateCron()"
+                        [(ngModel)]="state.monthly.runOnWeekday" [ngClass]="options.formCheckboxClass"> during the nearest weekday</label>
                     </div>
                     <div class="well well-small">
                         <input type="radio" name="monthly-radio" value="specificWeekDay" [disabled]="disabled" (change)="regenerateCron()"
@@ -242,7 +244,9 @@
                         <cron-time-picker [disabled]="disabled || activeTab !== 'yearly' || state.yearly.subTab !== 'specificMonthDay'"
                             (change)="regenerateCron()" [(time)]="state.yearly.specificMonthDay" [selectClass]="options.formSelectClass"
                             [use24HourTime]="options.use24HourTime" [hideSeconds]="options.hideSeconds">
-                        </cron-time-picker>
+                        </cron-time-picker>&nbsp;
+                        <label class="advanced-cron-editor-label"><input type="checkbox" (change)="regenerateCron()"
+                        [(ngModel)]="state.yearly.runOnWeekday" [ngClass]="options.formCheckboxClass"> during the nearest weekday</label>
                     </div>
                     <div class="well well-small">
                         <input type="radio" name="yearly-radio" value="specificMonthWeek" [disabled]="disabled"
