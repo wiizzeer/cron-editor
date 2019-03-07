@@ -181,6 +181,7 @@ export class CronEditorComponent implements OnInit, OnChanges {
       case 'yearly':
         switch (this.state.yearly.subTab) {
           case 'specificMonthDay':
+            // tslint:disable-next-line:max-line-length
             const day = this.state.yearly.runOnWeekday ? `${this.state.yearly.specificMonthDay.day}W` : this.state.yearly.specificMonthDay.day;
             // tslint:disable-next-line:max-line-length
             this.cron = `${this.state.yearly.specificMonthDay.minutes} ${this.hourToCron(this.state.yearly.specificMonthDay.hours, this.state.yearly.specificMonthDay.hourType)} ${day} ${this.state.yearly.specificMonthDay.month} ?`;
