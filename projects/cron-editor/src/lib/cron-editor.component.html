@@ -209,7 +209,14 @@
                             <option *ngFor="let day of selectOptions.days" [ngValue]="day">
                                 {{dayDisplay(day)}}
                             </option>
-                        </select> of every
+                        </select> of the
+                        <select class="months-medium" [disabled]="disabled || activeTab !== 'monthly' || state.monthly.subTab !== 'specificWeekDay'"
+                            (change)="regenerateCron()" [(ngModel)]="state.monthly.specificWeekDay.startMonth" [ngClass]="options.formSelectClass">
+                            <option *ngFor="let month of selectOptions.months" [ngValue]="month">
+                                {{monthOrdinalDisplay(month)}}
+                            </option>
+                        </select>
+                        month of every
                         <select class="months-small" [disabled]="disabled || activeTab !== 'monthly' || state.monthly.subTab !== 'specificWeekDay'"
                             (change)="regenerateCron()" [(ngModel)]="state.monthly.specificWeekDay.months" [ngClass]="options.formSelectClass">
                             <option *ngFor="let month of selectOptions.months" [ngValue]="month">
