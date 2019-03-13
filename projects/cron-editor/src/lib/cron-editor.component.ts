@@ -76,6 +76,7 @@ export class CronEditorComponent implements OnInit, OnChanges {
       return `${month}${this.getOrdinalSuffix(month)} day`;
     }
   }
+
   public monthOrdinalDisplay(month: string): string {
       return `${month}${this.getOrdinalSuffix(String(month))}`;
   }
