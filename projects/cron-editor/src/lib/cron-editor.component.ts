@@ -300,7 +300,14 @@ export class CronEditorComponent implements OnInit, OnChanges {
     } else if (cron.match(/\d+ \d+ \d+ (\d+|L|LW|1W) 1\/\d+ \? \*/)) {
       this.activeTab = 'monthly';
       this.state.monthly.subTab = 'specificDay';
-      this.state.monthly.specificDay.day = dayOfMonth;
+
+      if (dayOfMonth.indexOf('W') !== -1){
+        this.state.monthly.specificDay.day = dayOfMonth.charAt(0);
+        this.state.monthly.runOnWeekday = true;
+      } else {
+        this.state.monthly.specificDay.day = dayOfMonth;
+      }
+
       this.state.monthly.specificDay.months = Number(month.substring(2));
       const parsedHours = Number(hours);
       this.state.monthly.specificDay.hours = this.getAmPmHour(parsedHours);
@@ -324,7 +331,14 @@ export class CronEditorComponent implements OnInit, OnChanges {
       this.activeTab = 'yearly';
       this.state.yearly.subTab = 'specificMonthDay';
       this.state.yearly.specificMonthDay.month = Number(month);
-      this.state.yearly.specificMonthDay.day = dayOfMonth;
+
+      if (dayOfMonth.indexOf('W') !== -1){
+        this.state.yearly.specificMonthDay.day = dayOfMonth.charAt(0);
+        this.state.yearly.runOnWeekday = true;
+      } else {
+        this.state.yearly.specificMonthDay.day = dayOfMonth;
+      }
+
       const parsedHours = Number(hours);
       this.state.yearly.specificMonthDay.hours = this.getAmPmHour(parsedHours);
       this.state.yearly.specificMonthDay.hourType = this.getHourType(parsedHours);
@@ -439,6 +453,7 @@ export class CronEditorComponent implements OnInit, OnChanges {
       },
       monthly: {
         subTab: 'specificDay',
+        runOnWeekday: false,
         specificDay: {
           day: '1',
           months: 1,
@@ -460,6 +475,7 @@ export class CronEditorComponent implements OnInit, OnChanges {
       },
       yearly: {
         subTab: 'specificMonthDay',
+        runOnWeekday: false,
         specificMonthDay: {
           month: 1,
           day: '1',

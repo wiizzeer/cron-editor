@@ -9,7 +9,7 @@ import { CronOptions } from 'projects/cron-editor/src/lib/CronOptions';
 export class AppComponent {
   // Hangfire 1.7+ compatible expression: '3 2 12 1/1 ?'
   // Quartz compatible expression: '4 3 2 12 1/1 ? *'
-  public cronExpression = '4 3 2 12 1/1 ? *';
+  public cronExpression = '0 12 1W 1/1 ?';
   public isCronDisabled = false;
   public cronOptions: CronOptions = {
     formInputClass: 'form-control cron-editor-input',
@@ -28,8 +28,8 @@ export class AppComponent {
     hideYearlyTab: false,
     hideAdvancedTab: false,
 
-    hideSeconds: false,
-    removeSeconds: false,
-    removeYears: false
+    hideSeconds: true,
+    removeSeconds: true,
+    removeYears: true
   };
 }
