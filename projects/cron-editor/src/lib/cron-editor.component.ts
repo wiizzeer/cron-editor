@@ -519,7 +519,7 @@ export class CronEditorComponent implements OnInit, OnChanges {
       seconds: Utils.getRange(0, 59),
       hours: Utils.getRange(1, 23),
       monthDays: Utils.getRange(1, 31),
-      monthDaysWithLasts: [...[...Utils.getRange(1, 31).map(String)]],
+      monthDaysWithLasts: [...Utils.getRange(1, 31).map(String), 'L'],
       hourTypes: ['AM', 'PM']
     };
   }
