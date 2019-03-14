@@ -301,7 +301,7 @@ export class CronEditorComponent implements OnInit, OnChanges {
       this.activeTab = 'monthly';
       this.state.monthly.subTab = 'specificDay';
 
-      if (dayOfMonth.indexOf('W') !== -1){
+      if (dayOfMonth.indexOf('W') !== -1) {
         this.state.monthly.specificDay.day = dayOfMonth.charAt(0);
         this.state.monthly.runOnWeekday = true;
       } else {
@@ -332,7 +332,7 @@ export class CronEditorComponent implements OnInit, OnChanges {
       this.state.yearly.subTab = 'specificMonthDay';
       this.state.yearly.specificMonthDay.month = Number(month);
 
-      if (dayOfMonth.indexOf('W') !== -1){
+      if (dayOfMonth.indexOf('W') !== -1) {
         this.state.yearly.specificMonthDay.day = dayOfMonth.charAt(0);
         this.state.yearly.runOnWeekday = true;
       } else {
