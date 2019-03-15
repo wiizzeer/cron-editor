@@ -77,10 +77,6 @@ export class CronEditorComponent implements OnInit, OnChanges {
     }
   }
 
-  public monthOrdinalDisplay(month: string): string {
-      return `${month}${this.getOrdinalSuffix(String(month))}`;
-  }
-
   public regenerateCron() {
     this.isDirty = true;
 

@@ -209,20 +209,21 @@
                             <option *ngFor="let day of selectOptions.days" [ngValue]="day">
                                 {{dayDisplay(day)}}
                             </option>
-                        </select> of the
-                        <select class="months-medium" [disabled]="disabled || activeTab !== 'monthly' || state.monthly.subTab !== 'specificWeekDay'"
-                            (change)="regenerateCron()" [(ngModel)]="state.monthly.specificWeekDay.startMonth" [ngClass]="options.formSelectClass">
-                            <option *ngFor="let month of selectOptions.months" [ngValue]="month">
-                                {{monthOrdinalDisplay(month)}}
-                            </option>
-                        </select>
-                        month of every
+                        </select> of every
                         <select class="months-small" [disabled]="disabled || activeTab !== 'monthly' || state.monthly.subTab !== 'specificWeekDay'"
                             (change)="regenerateCron()" [(ngModel)]="state.monthly.specificWeekDay.months" [ngClass]="options.formSelectClass">
                             <option *ngFor="let month of selectOptions.months" [ngValue]="month">
                                 {{month}}
                             </option>
-                        </select> month(s) at
+                        </select> month(s) starting in
+                        <select class="months" [disabled]="disabled || activeTab !== 'monthly' || state.monthly.subTab !== 'specificWeekDay'"
+                            (change)="regenerateCron()" [(ngModel)]="state.monthly.specificWeekDay.startMonth" [ngClass]="options.formSelectClass">
+                            <option *ngFor="let month of selectOptions.months" [ngValue]="month">
+                                {{monthDisplay(month)}}
+                            </option>
+                        </select>
+                        
+                        at
                         <cron-time-picker [disabled]="disabled || activeTab !== 'monthly' || state.monthly.subTab !== 'specificWeekDay'"
                             (change)="regenerateCron()" [(time)]="state.monthly.specificWeekDay" [selectClass]="options.formSelectClass"
                             [use24HourTime]="options.use24HourTime" [hideSeconds]="options.hideSeconds">
