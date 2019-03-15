@@ -315,14 +315,19 @@ export class CronEditorComponent implements OnInit, OnChanges {
       this.state.monthly.specificDay.hourType = this.getHourType(parsedHours);
       this.state.monthly.specificDay.minutes = Number(minutes);
       this.state.monthly.specificDay.seconds = Number(seconds);
-    } else if (cronSeven.match(/\d+ \d+ \d+ \? 1\/\d+ (MON|TUE|WED|THU|FRI|SAT|SUN)((#[1-5])|L) \*/)) {
+    } else if (cronSeven.match(/\d+ \d+ \d+ \? \d+\/\d+ (MON|TUE|WED|THU|FRI|SAT|SUN)((#[1-5])|L) \*/)) {
       const day = dayOfWeek.substr(0, 3);
       const monthWeek = dayOfWeek.substr(3);
       this.activeTab = 'monthly';
       this.state.monthly.subTab = 'specificWeekDay';
       this.state.monthly.specificWeekDay.monthWeek = monthWeek;
       this.state.monthly.specificWeekDay.day = day;
-      this.state.monthly.specificWeekDay.months = Number(month.substring(2));
+
+      if (month.indexOf('/') !== -1) {
+        this.state.monthly.specificWeekDay.months = Number(month.substring(2));
+        this.state.monthly.specificWeekDay.startMonth = Number(month.split('/')[0]);
+      }
+
       const parsedHours = Number(hours);
       this.state.monthly.specificWeekDay.hours = this.getAmPmHour(parsedHours);
       this.state.monthly.specificWeekDay.hourType = this.getHourType(parsedHours);
