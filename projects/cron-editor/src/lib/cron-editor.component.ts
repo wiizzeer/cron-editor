@@ -254,7 +254,7 @@ export class CronEditorComponent implements OnInit, OnChanges {
     }
 
     if (this.options.removeYears) {
-      cronSeven = `${cron} *`;
+      cronSeven = `${cronSeven} *`;
     }
 
     const [seconds, minutes, hours, dayOfMonth, month, dayOfWeek] = cronSeven.split(' ');
