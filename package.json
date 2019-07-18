@@ -10,12 +10,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/claudiuconstantin/cron-editor"
+    "url": "git://github.com/wiizzeer/cron-editor"
   },
   "bugs": {
-    "url": "https://github.com/claudiuconstantin/cron-editor/issues"
+    "url": "https://github.com/wiizzeer/cron-editor/issues"
   },
-  "homepage": "https://github.com/claudiuconstantin/cron-editor",
+  "homepage": "https://github.com/wiizzeer/cron-editor",
   "keywords": [
     "angular",
     "cron",
